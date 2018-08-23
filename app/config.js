@@ -18,6 +18,7 @@ angular.module('portainer')
       unauthenticatedRedirector: ['$state', function($state) {
         $state.go('portainer.auth', {error: 'Your session has expired'});
       }]
+      , whiteListedDomains: ['localhost:5000']
     });
     $httpProvider.interceptors.push('jwtInterceptor');
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
